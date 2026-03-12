@@ -1,0 +1,28 @@
+:root {
+    /* HUVUDFÄRGER */
+    --color-primary: #4a90d9; 
+    --color-primary-dark: #2d6fad;
+    --color-primary-light: #e8f2fb;
+    /* TEXTFÄRGER */
+    --color-text: #213547;
+    --color-text-muted: #6b7280;
+    /* BAKGRUNDER */
+    --color-background: #f5f7fa;
+    --color-surface: #ffffff;
+    --color-border: #dce3ed;
+    /* ACCENTFÄRGER */
+    --color-unread-accent: #4a90d9;
+    --color-success: #22c55e;
+    /* SKUGGOR */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* RUNDANDE HÖRN */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    /* MELLANRUM */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+}

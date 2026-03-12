@@ -1,0 +1,90 @@
+@import './variables.css';
+
+.notification-card{
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid transparent;
+    transition: box-shadow 0.2s;
+}
+
+.notification-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.notification-card--unread {
+border-left-color: var(--color-unread-accent);
+background-color: var(--color-primary-light);
+}
+
+.notification-card__header {
+    display:flex;
+    align-items:center;
+    gap: var(--spacing-sm);
+    margin-bottom:var(--spacing-sm);
+}
+
+.notification-card__type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color:var(--color-primary);
+    background-color: var(--color-primary-light);
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.notification-card--unread .notification-card__type {
+    background-color: white;
+}
+
+.notification-card__dot {
+    width:8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-priamry);
+    margin-left:auto;
+}
+
+.notification-card__title {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.notification-card__message {
+    margin: 0 0 var(--spacing-md);
+    font-size: 0.95rem;
+    color:var(--color-text-muted);
+    line-height: 1.5;
+    }
+
+    .notification-card__footer {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+
+    .notification-card__date{
+        font-size: 0.8em;
+        color: var(--color-text-muted);
+    }
+    .notification-card__read-btn {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color:var(--color-priamry);
+        background:none;
+        border: 1.5px solid var(--color-primary);
+        border-radius: var(--radius-sm);
+        padding: 4px 12px;
+        cursor:pointer;
+        transition: all 0.2s;   
+    }
+    
+    .notification-card-btn:hover {
+        background-color: var(--color-primary);
+        color:white;
+    }

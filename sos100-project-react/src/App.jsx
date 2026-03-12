@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header';
+import UserSelector from './components/UserSelector';
+import NotificationList from './components/NotificationList';
+import EmptyState from './components/EmptyState';
+import RefreshButton from './components/RefreshButton';
+import { useNotifications } from './hooks/useNotifications';
+import errorIcon from './assets/error.svg';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {notifications,isLoading,error,userId,setUserId,loadNotifications,markAsRead,} 
+  = useNotifications();
+
+  const unreadCount = notifications.filter((n) => !n.isRead).length;
+  const hasSearched = userId.trim().length > 0 && !isLoading && error === null;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app">
+      <Header unreadCount={unreadCount} />
 
-export default App
+      <main className="app__main">
+        <UserSelector
+          userId={userId}
+          onUserIdChange={setUserId}
+          onFetch={loadNotifications}
+          isLoading={isLoading}
+        />
+
+        {/* Felmeddelande */}
+        {error && (
+          <div className="app__error">
+            <img src={errorIcon} alt="fel" className='app__error-icon'/>
+            <span>{error}</span>
+          </div>
+        )}
+
+        {/* Laddningsindikator */}
+        {isLoading && (
+          <div className="app__loading">
+            <span>Hämtar notifikationer...</span>
+          </div>
+        )}
+
+        {/* Refresh-knapp och lista */}
+        {!isLoading && notifications.length > 0 && (
+          <div className="app__toolbar">
+            <RefreshButton onRefresh={loadNotifications} isLoading={isLoading} />
+          </div>
+        )}
+
+        {!isLoading && notifications.length > 0 && (
+          <NotificationList
+            notifications={notifications}
+            onMarkAsRead={markAsRead}
+          />
+        )}
+
+        {/* Tom lista */}
+        {hasSearched && notifications.length === 0 && (
+          <EmptyState userId={userId} />
+        )}
+      </main>
+    </div>
+  );
+}
+export default App;

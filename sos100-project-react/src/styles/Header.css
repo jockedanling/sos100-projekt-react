@@ -1,0 +1,38 @@
+@import '../styles/variables.css';
+
+.header {
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    background-color: var(--color-primary);
+    color: white;
+    padding:var(--spacing-md) var (--spacing-x1);
+    box-shadow:var(--shadow-md);
+
+    .header__brand {
+        display:flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .header__icon{
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    .header__title {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    .header__badge {
+        background-color:white;
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding:4px 12px;
+        border-radius: 20px;
+    }
+}
