@@ -19,46 +19,52 @@ function App() {
       <Header unreadCount={unreadCount} />
 
       <main className="app__main">
-        <UserSelector
-          userId={userId}
-          onUserIdChange={setUserId}
-          onFetch={loadNotifications}
-          isLoading={isLoading}
-        />
+        <section className="app__content">
+          <h2 className="app__content-title">Sök efter användarens notiser!</h2>
 
-        {/* Felmeddelande */}
-        {error && (
-          <div className="app__error">
-            <img src={errorIcon} alt="fel" className='app__error-icon'/>
-            <span>{error}</span>
-          </div>
-        )}
+          {/* Felmeddelande */}
+          {error && (
+            <div className="app__error">
+              <img src={errorIcon} alt="fel" className="app__error-icon" />
+              <span>{error}</span>
+            </div>
+          )}
 
-        {/* Laddningsindikator */}
-        {isLoading && (
-          <div className="app__loading">
-            <span>Hämtar notifikationer...</span>
-          </div>
-        )}
+          {/* Laddningsindikator */}
+          {isLoading && (
+            <div className="app__loading">
+              <span>Hämtar notifikationer...</span>
+            </div>
+          )}
 
-        {/* Refresh-knapp och lista */}
-        {!isLoading && notifications.length > 0 && (
-          <div className="app__toolbar">
-            <RefreshButton onRefresh={loadNotifications} isLoading={isLoading} />
-          </div>
-        )}
+          {/* Refresh-knapp och lista */}
+          {!isLoading && notifications.length > 0 && (
+            <div className="app__toolbar">
+              <RefreshButton onRefresh={loadNotifications} isLoading={isLoading} />
+            </div>
+          )}
 
-        {!isLoading && notifications.length > 0 && (
-          <NotificationList
-            notifications={notifications}
-            onMarkAsRead={markAsRead}
+          {!isLoading && notifications.length > 0 && (
+            <NotificationList
+              notifications={notifications}
+              onMarkAsRead={markAsRead}
+            />
+          )}
+
+          {/* Tom lista */}
+          {hasSearched && notifications.length === 0 && (
+            <EmptyState userId={userId} />
+          )}
+        </section>
+
+        <aside className="app__sidebar">
+          <UserSelector
+            userId={userId}
+            onUserIdChange={setUserId}
+            onFetch={loadNotifications}
+            isLoading={isLoading}
           />
-        )}
-
-        {/* Tom lista */}
-        {hasSearched && notifications.length === 0 && (
-          <EmptyState userId={userId} />
-        )}
+        </aside>
       </main>
     </div>
   );

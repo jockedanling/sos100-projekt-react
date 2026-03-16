@@ -23,17 +23,3 @@ body {
   }
 }
 
-/* Responsiv layout för UserSelector */
-@media (max-width: 600px) {
-  .user-selector__row {
-    flex-direction: column;
-  }
-
-  .user-selector__button {
-    width: 100%;
-  }
-
-  .notification-list {
-    padding: var(--spacing-md);
-  }
-}

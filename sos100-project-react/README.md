@@ -1,16 +1,22 @@
-# React + Vite
+# NotificationSearcher
+Denna applikation kan söka efter notiser som användaren har kopplat till sin userId och API:et den använder är NotificationService. Syftet är att kunna se användarens alla notiser från det interna bibliotekssystemet så det är endast en enkel sökfunktion efter en specifik användares notifikationer som den har fått via det interna systemet. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Hur man kör
+``` bash
+npm install
+npm run dev
+```
 
-Currently, two official plugins are available:
+API:et kan nås via denna länk med scalar UI: 
+https://notification-service-t9.azurewebsites.net/scalar/v1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Kopplingen till API:et är konfigurerad i src/api/notificationApi.js via variabeln BASE_URL.
 
-## React Compiler
+## AI-användning
+AI har använts för hjälp med css-design och layout baserat på figma-utkast. Färger har justerats efter eget tycke. AI har även använts för att debugga syntax fel och förklarat kod som jag inte har förstått. Förslag på filstruktur har AI även använts till.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Annat
+Projektstrukturen är src och sedan /api, /components, /hooks, /styles/ för att ha organiserad struktur på all kod.
+Vite har använts som byggverktyg.
+Inga externa CSS-ramverk har använts, bara vanlig CSS med variabler. 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

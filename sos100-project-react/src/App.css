@@ -5,40 +5,113 @@
   background-color: var(--color-background);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Dekorativ blob –> uppe till vänster */
+.app::before {
+  content: '';
+  position: fixed;
+  top: -180px;
+  left: -180px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background-color: var(--color-blob);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dekorativ blob –> nere till vänster */
+.app::after {
+  content: '';
+  position: fixed;
+  bottom: -220px;
+  left: -80px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background-color: var(--color-blob);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .app__main {
   flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.app__content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+}
+
+.app__content-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.3px;
+}
+
+.app__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .app__toolbar {
   display: flex;
   justify-content: flex-end;
-  padding: var(--spacing-md) var(--spacing-lg);
-  max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
+  margin-bottom: var(--spacing-md);
 }
-.app__error{
-  margin:var(--spacing-lg) auto;
-  max-width: 800px;
-  width:100%;
+
+.app__error {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md) var(--spacing-lg);
   background-color: #fef2f2;
   border-left: 4px solid #ef4444;
   border-radius: var(--radius-sm);
-  color:#b91c1c;
+  color: #b91c1c;
   font-weight: 500;
 }
 
-app__error-icon {
-  width: 24;
-  height: 24;
+.app__error-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
+
 .app__loading {
   text-align: center;
-  padding:var(--spacing-x1);
-  color:var(--color-text-muted);
+  padding: var(--spacing-xl);
+  color: var(--color-text-muted);
   font-size: 1rem;
+}
+
+/* Responsiv layout */
+@media (max-width: 768px) {
+  .app__main {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+  }
+
+  .app__sidebar {
+    order: -1;
+  }
 }
