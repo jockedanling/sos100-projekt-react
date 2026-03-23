@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 import { fetchNotificationsByUser, markNotificationAsRead } from '../api/notificationApi';
 
 // useState - Skapa reaktiva variabler. När de ändras ritas komponenten om
@@ -23,6 +23,17 @@ const loadNotifications = useCallback(async () => {
         setIsLoading(false);
     }
 }, [userId]);
+
+useEffect(() => { // Körs automatiskt varje gång userId ändras
+if(!userId.trim()) {
+    setNotifications([]);
+return;
+}
+const timer = setTimeout(() => { // SetTimeout väntar 500ms efter att man har slutat skrivit och sedan skickar anropet.
+    loadNotifications();
+}, 500);
+return () => clearTimeout(timer); // Avbryter timeouten om userId ändras igen innan 500ms gått.
+}, [userId, loadNotifications]);
 
 //setNotifications + prev - uppdaterar notifikationen lokalt utan att hämta om alla från api:et.
 const markAsRead = useCallback(async (notificationId) => {
