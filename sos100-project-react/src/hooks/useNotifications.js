@@ -7,6 +7,7 @@ const [notifications, setNotifications] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState(null);
 const [userId, setUserId] = useState('');
+const [hasFetched, setHasFetched] = useState(false);
 
 // useCallback - memorerar funktionen så den inte återskapas i onödan vid varje render
 const loadNotifications = useCallback(async () => {
@@ -21,12 +22,14 @@ const loadNotifications = useCallback(async () => {
         setError(err.message);
     } finally {
         setIsLoading(false);
+        setHasFetched(true);
     }
 }, [userId]);
 
 useEffect(() => { // Körs automatiskt varje gång userId ändras
 if(!userId.trim()) {
     setNotifications([]);
+    setHasFetched(false);
 return;
 }
 const timer = setTimeout(() => { // SetTimeout väntar 500ms efter att man har slutat skrivit och sedan skickar anropet.
@@ -45,5 +48,5 @@ const markAsRead = useCallback(async (notificationId) => {
     setError(err.message);
 }
 }, []);
-return {notifications, isLoading, error, userId, setUserId, loadNotifications, markAsRead };
+return {notifications, isLoading, error, userId, setUserId, loadNotifications, markAsRead, hasFetched };
 }

@@ -8,11 +8,11 @@ import errorIcon from './assets/error.svg';
 import './App.css';
 
 function App() {
-  const {notifications,isLoading,error,userId,setUserId,loadNotifications,markAsRead,} 
+  const {notifications,isLoading,error,userId,setUserId,loadNotifications,markAsRead, hasFetched } 
   = useNotifications();
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
-  const hasSearched = userId.trim().length > 0 && !isLoading && error === null;
+  const hasSearched = hasFetched && userId.trim().length > 0 && !isLoading && error === null;
 
   return (
     <div className="app">
