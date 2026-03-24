@@ -21,6 +21,11 @@ function App() {
       <main className="app__main">
         <section className="app__content">
           <h2 className="app__content-title">Sök efter användarens notiser!</h2>
+          {!hasFetched && !isLoading && (
+            <div className='app__welcome'>
+              <p>Ange ett användar-ID i sökfältet för att se notifikationer tillhörande användaren.</p>
+            </div>
+          )}
 
           {/* Felmeddelande */}
           {error && (
