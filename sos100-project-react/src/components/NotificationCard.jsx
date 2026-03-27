@@ -47,10 +47,6 @@ function NotificationCard({notification, onMarkAsRead}) {
 
             <div className='notification-card__footer'>
                 <time className='notification-card__date'>{formatDate(createdAt)}</time>
-                {!isRead && (
-                    <button className='notification-card__read-btn' onclick={() => onMarkAsRead(id)}
-                >Markera som läst</button>
-                )}
             </div>
         </article>
     );
