@@ -14,12 +14,3 @@ export async function fetchNotificationsByUser(userId){
     }
     return response.json();
 }
-
-export async function markNotificationAsRead(notificationId) {
-    const response = await fetch (`${BASE_URL}/Notifications/${notificationId}/read`, {
-        method: 'PUT', 
-    });
-    if (!response.ok) {
-        throw new Error(`Kunde inte markera notifikation som läst (${response.status})`);
-    }
-}

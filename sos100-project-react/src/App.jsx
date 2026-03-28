@@ -8,7 +8,7 @@ import errorIcon from './assets/error.svg';
 import './App.css';
 
 function App() {
-  const {notifications,isLoading,error,userId,setUserId,loadNotifications,markAsRead, hasFetched } 
+  const {notifications,isLoading,error,userId,setUserId,loadNotifications, hasFetched } 
   = useNotifications();
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
@@ -52,7 +52,6 @@ function App() {
           {!isLoading && notifications.length > 0 && (
             <NotificationList
               notifications={notifications}
-              onMarkAsRead={markAsRead}
             />
           )}
 

@@ -5,7 +5,7 @@ Visar även en sammanfattning med antal och antal olästa.
 import NotificationCard from "./NotificationCard";
 import '../styles/NotificationList.css';
 
-function NotificationList({notifications, onMarkAsRead}) {
+function NotificationList({notifications}) {
     const unreadCount = notifications.filter((n) => !n.isRead).length; /* Räknar olästa */
 
     return (
@@ -25,7 +25,7 @@ function NotificationList({notifications, onMarkAsRead}) {
                     <NotificationCard
                     key={notification.id} /* Unik key vid rendering av listor */
                     notification={notification}
-                onMarkAsRead={onMarkAsRead} />
+                 />
             ))}
             </div>
         </section>

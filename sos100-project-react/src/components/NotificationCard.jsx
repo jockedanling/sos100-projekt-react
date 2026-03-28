@@ -27,8 +27,8 @@ function formatDate(dateString) {
     });
 }
 
-function NotificationCard({notification, onMarkAsRead}) {
-    const {id, title, message, isRead, createdAt, template} = notification;
+function NotificationCard({notification}) {
+    const {title, message, isRead, createdAt, template} = notification;
 
     return (
         <article className={`notification-card ${!isRead ? 'notification-card--unread' :''}`}> {/* Lägger till CSS-klass dynamiskt om notifikationen är oläst */}
