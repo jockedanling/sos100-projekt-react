@@ -7,6 +7,13 @@ Hämtar data från NotificationService API via ett användar-ID.
 1. Installera:
     npm install
 
+1,5. Rätt fil i terminalen (eventuell):
+    Säkerställ att terminalen är i rätt fil:
+    sos100-project-react
+    Om inte: cd sos100-project-react
+    korrekt filväg för att kunna starta:
+    sos100-projekt-react/sos100-project-react
+
 2. Starta utvecklingsservern:
     npm run dev
 
