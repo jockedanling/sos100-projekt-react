@@ -16,7 +16,7 @@ Hämtar data från NotificationService API via ett användar-ID.
 ### Koppling mot API
 API-adressen är konfigurerad i src/api/notificationApi.js via variabeln BASE_URL. 
 
-API:et har ett scalar UI för att utforska endpoints:
+NotificationService har ett scalar UI för att utforska endpoints:
 https://notification-service-t9.azurewebsites.net/scalar/v1
 
 ## AI-användning

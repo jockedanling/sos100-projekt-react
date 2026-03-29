@@ -1,6 +1,6 @@
 /*
 Denna komponent visar enskild notifikation som ett kort.
-Den tar emot notifikations objekt och en onMarkAsRead-funktion som props
+Den tar emot notifikationsojekt som prop
 */
 import '../styles/NotificationCard.css';
 
