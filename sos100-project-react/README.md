@@ -33,7 +33,9 @@ https://notification-service-t9.azurewebsites.net/scalar/v1
 
 ## AI-användning
 AI har använts för hjälp med css-design och layout baserat på figma-utkast. 
+
 AI har även använts för att debugga syntax fel och förklara problem. 
+
 Förslag på filstruktur.
 
 ### Modifiering av AI-genererat material
@@ -41,7 +43,10 @@ Färger och designval har justerats manuellt efter eget tycke.
 
 ## Annat
 Projektstrukturen är src och sedan /api, /components, /hooks, /styles/ för att ha organiserad struktur på all kod.
+
 Vite har använts som byggverktyg.
+
 Inga externa CSS-ramverk har använts, bara vanlig CSS med variabler. 
+
 Applikationen använder endast en GET-endpoint från API:et.
 
